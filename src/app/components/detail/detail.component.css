@@ -1,0 +1,7 @@
+.quantity-btn {
+  display: inline-block;
+  width:10%;
+  text-align: center;
+  margin: 2px;
+  font-weight: bold;
+}

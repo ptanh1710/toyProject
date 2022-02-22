@@ -1,0 +1,43 @@
+
+
+.img .empty-img {
+  width: 65%;
+}
+
+.card .card-body {
+  text-transform: capitalize;
+}
+
+table {
+  text-transform: capitalize;
+}
+
+.total-prc {
+  font-size: 20px;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.quantity {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tb-center {
+  vertical-align: center;
+}
+
+.quantity-btn {
+  display: inline-block;
+  width:100%;
+  text-align: center;
+  margin: 2px;
+  font-weight: bold;
+}
+
+.quantity-label {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  border: 1px solid #000;
+}

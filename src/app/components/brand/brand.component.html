@@ -1,0 +1,20 @@
+<app-header></app-header>
+
+<div class="container mt-5">
+  <div class="row">
+    <ng-container *ngFor="let brand of brandList">
+      <div class="col-lg-4 col-md-6 mt-2 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{brand.brand_name}} </h5>
+            <p class="card-text">{{brand.brand_desc | formatcontent: 0 :70}}</p>
+            <a routerLink="/brand/{{brand.brand_id}}" class="btn btn-primary">Xem chi tiết</a>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>
+
+<app-footer></app-footer>

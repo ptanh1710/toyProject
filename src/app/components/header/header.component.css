@@ -1,0 +1,141 @@
+/* @import url('../../app.component.css'); */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 10px 20px;
+  /* background: var(--main-color); */
+  background: linear-gradient(45deg, #240e8b, #0055a8);
+  color: #fff;
+}
+
+a, ul, li {
+  text-decoration: none;
+  color: #000;
+  list-style: none;
+}
+
+.header-logo {
+  font-size: 28px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #fff;
+
+}
+
+.header-list {
+  margin: 0;
+}
+
+.header-list_item,.search, .user, .cart {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.header-list_item a, .user-list_item a {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 5px 20px;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+
+.header-list_item a:hover, .user a:hover{
+  background: #7bd5f5;
+  color: #fff;
+  border-radius: 5px;
+  transition: all .4s ease;
+
+}
+.user a{
+  padding: 8px;
+  color: #fff;
+
+}
+
+.user a:hover{
+  background: #7bd5f5;
+  color: #fff;
+  border-radius: 5px;
+  transition: all .4s ease;
+}
+
+.sub-nav,  .user-list{
+  position: absolute;
+  display: none;
+  top: 30px;
+  left: -20px;
+  transition: all .4s ease;
+
+}
+
+/* .user-list {
+  left: -50px;
+} */
+
+.header-list_item:hover> .sub-nav, .user:hover > .user-list {
+  display: block;
+  z-index: 1;
+}
+
+.sub-nav_item,  .user-list_item,
+.sub-nav_item a,  .user-list_item a{
+  height: auto;
+  width: 150px;
+  float: none;
+  display: list-item;
+  text-align: left;
+  background: #034b88;
+  color: #fff;
+  transition: all .4s ease;
+
+  /* padding: 3px 2px; */
+}
+.user-list_item,.user-list_item a{
+  width: 120px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search, .user, .cart {
+  padding: 0 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+}
+
+.user span {
+  /* position: absolute; */
+  /* top: 0; */
+  padding-left: 2px;
+}
+
+.cart i {
+  font-size: 18px;
+  color: #fff;
+
+}
+
+.cart span {
+  position: absolute;
+  color: #000;
+  top: -10px;
+  left: 18px;
+  z-index: 1;
+  font-size: 12px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  opacity: 0.9;
+  font-weight: bold;
+}

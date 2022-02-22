@@ -1,0 +1,27 @@
+.img .empty-img {
+  width: 65%;
+}
+
+.card .card-body {
+  text-transform: capitalize;
+}
+
+table {
+  text-transform: capitalize;
+}
+
+.total-prc {
+  font-size: 20px;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+.card-body {
+  width: 100%;
+}
+
+.checkout {
+  width: 60%;
+  margin: 0 auto;
+
+}

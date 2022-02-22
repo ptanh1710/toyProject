@@ -1,0 +1,43 @@
+<app-header></app-header>
+
+<div class="container" *ngIf="productBrand.length > 0">
+  <div class="card mt-2 me-3 shadow-lg p-3  bg-body rounded" *ngFor="let brand of brand">
+    <div class="card-body">
+      <h5 class="card-title">Tên thương hiệu: {{brand.brand_name}}</h5>
+      <p class="card-text">Mô tả sản phẩm: {{brand.brand_desc}}</p>
+      <p class="card-text">Số lượng sản phẩm hiện có: {{productBrand.length}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let product of productBrand">
+      <div class="col col-lg-3 mt-2 me-3">
+        <div class="card shadow p-3 mb-5 bg-body rounded" style="width: 18rem; margin: 0 auto;">
+          <a routerLink="/detail/{{product.product_id}}" class="card-link">
+            <img src="assets/img/{{product.product_img}}" class="card-img-top" alt="{{product.product_name}}">
+
+          </a>
+          <div class="card-body text-center">
+            <a routerLink="/detail/{{product.product_id}}" class="card-link">
+              <h5 class="card-title" title="{{product.product_name}}">{{product.product_name | formatcontent: 0: 15}}</h5>
+            </a>
+            <p class="card-text text-center text-danger fw-bold">{{product.product_price | formatnumber}} VNĐ</p>
+            <button (click)="addToCart(product)" class="btn btn-primary">Thêm vào giỏ hàng</button>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
+<ng-container *ngIf="productBrand.length == 0">
+  <div class="container mt-3 mb-3">
+    <div class="card text-center shadow p-3 mb-5 bg-body rounded">
+      <div class="card-body" *ngFor="let brand of brand">
+        <h5 class="card-title">
+          Không có sản phẩm thuộc thương hiệu <span class="text-danger fw-bold">{{brand.brand_name}}</span> này
+        </h5>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-footer></app-footer>

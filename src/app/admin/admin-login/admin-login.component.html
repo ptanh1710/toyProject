@@ -1,0 +1,31 @@
+<div class="login">
+  <div class="center">
+    <h1>Admin login</h1>
+
+    <form [formGroup] = "adminLoginForm">
+      <div class="txt_field">
+        <input type="text"  required name="email" formControlName="email">
+        <span></span>
+        <label>Tài khoản email</label>
+      </div>
+      <p class="error" *ngIf="email?.errors?.email">Đây không phải là mail</p>
+      <p class="error" *ngIf="email?.errors?.required">Bạn chưa nhập dữ liệu</p>
+
+      <div class="txt_field">
+        <input type="password" required name="password" formControlName="password">
+        <span></span>
+        <label>Mật khẩu</label>
+      </div>
+      <p class="error" *ngIf="password?.errors?.minlength">Mật khẩu phải lớn >= 6 ký tự </p>
+      <p class="error" *ngIf="password?.errors?.required">Bạn chưa nhập dữ liệu</p>
+
+
+      <!-- <div class="pass">Forgot Password?</div> -->
+      <input type="submit" value="Đăng Nhập" (click)="loginAdmin(adminLoginForm)">
+      <div class="signup_link">
+        <!-- Bạn chưa có tài khoản <a routerLink="/register">Đăng ký</a> -->
+      </div>
+    </form>
+  </div>
+</div>
+

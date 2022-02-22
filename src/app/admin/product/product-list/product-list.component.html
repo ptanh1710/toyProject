@@ -1,0 +1,64 @@
+<app-header-admin></app-header-admin>
+
+<div class="container" style="margin-top: 80px;">
+  <div class="card shadow-lg p-3 mb-2 bg-body rounded">
+    <div class="card-body">
+      <h3 class="text-center mb-2">Danh sách sản phẩm</h3>
+      <a class="btn btn-primary" routerLink="/admin/product-add">Thêm sản phẩm</a>
+      <table class="table">
+        <thead>
+          <tr class="text-center">
+            <th scope="col">#</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Giá</th>
+            <th scope="col">Chức năng</th>
+          </tr>
+        </thead>
+        <tbody class="align-middle">
+          <tr *ngFor="let item of productList; let i = index">
+            <th scope="row" width="10%" class="text-center">{{i+1}}</th>
+            <td  width="30%">
+              <p><b>{{item.product_name}}</b></p>
+              <p>Thể loại: <b>{{item.category_name}}</b></p>
+              <p>Hãng: <b>{{item.brand_name}}</b></p>
+            </td>
+            <td  width="20%" class="text-center">
+              <img src="/assets/img/{{item.product_img}}" alt="">
+            </td>
+            <td  width="15%" class="text-center">{{item.product_price | formatnumber}} VNĐ</td>
+
+            <td width="15%" class="text-center">
+              <a class="btn btn-success m-1" title="Chi tiết sp {{item.product_id}}" routerLink="/admin/product-detail/{{item.product_id}}">
+                <i class="fas fa-edit"></i>
+              </a>
+              <button class="btn btn-warning m-1" title="Xoá sp {{item.product_id}}: {{item.product_name}}" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <i class="fas fa-trash"></i>
+              </button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Xoá sản phẩm</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Chưa có chức năng xoá
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer-admin></app-footer-admin>

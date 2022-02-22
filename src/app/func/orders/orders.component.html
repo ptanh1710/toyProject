@@ -1,0 +1,117 @@
+<app-header></app-header>
+
+
+<ng-container *ngIf="products.length > 0">
+  <div class="container mt-3 mb-3">
+    <div class="row">
+      <div class="col col-lg-8 col-md-6 col-sm-12">
+        <div class="card text-center shadow p-3 mb-1 bg-body rounded">
+          <div class="card-body">
+            <h5 class="cart-title">
+              giỏ hàng của bạn
+            </h5>
+          </div>
+        </div>
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Hình</th>
+                <th scope="col">Thông tin SP</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Giá bán</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr *ngFor="let item of products; let i=index">
+                <th scope="row"  class="text-center" width="5%">{{i+1}}</th>
+                <td width="25%" class="text-center">
+                  <img src="assets/img/{{item.product_img}}" alt="{{item.product_name}}" width="50%">
+                </td>
+                <td width="30%">
+                  <h6>{{item.product_name}}</h6>
+                  <p>Giá: {{item.product_price | formatnumber}} VNĐ</p>
+                </td>
+                <td width="20%" class="text-center">
+                  <div class="quantity">
+                    <div >
+                      <label class="btn form-control quantity-label">{{item.quantity}}</label>
+                    </div>
+                  </div>
+
+                  <!-- {{item.quantity}} -->
+                </td>
+                <td width="20%" class="text-center">{{item.total * item.quantity| formatnumber}}</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+      <div class="col col-lg-4 col-md-6 col-sm-12">
+        <div class="card shadow p-3 mb-5 bg-body rounded">
+          <div class="card-body">
+            <h5 class="cart-title text-center">
+              Đặt hàng
+            </h5>
+            <hr>
+            <p class="cart-text">
+              Thành tiền: {{totalPrice | formatnumber}} VNĐ
+            </p>
+            <hr>
+            <p class="cart-text">
+              Tổng tiền: <span class="total-prc">{{totalPrice | formatnumber}} VNĐ</span>
+            </p>
+            <a routerLink="/product" class="btn btn-primary me-2">Tiếp tục mua hàng</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card shadow p-3 mb-3 bg-body rounded">
+      <div class="card-body">
+        <div class="checkout">
+          <form action="" class="form-control">
+            <div class="mb-3" class="text-center">
+              <h2>Thông tin người mua</h2>
+            </div>
+            <div class="mb-3">
+              <label for="billname" class="form-label">Họ tên người mua:</label>
+              <input type="text" class="form-control" id="billname" placeholder="Vd: Nguyễn Văn A" name="billname" [(ngModel)]="billname">
+            </div>
+
+            <div class="mb-3">
+              <label for="billaddress" class="form-label">Địa chỉ giao hàng:</label>
+              <input type="text" class="form-control" id="billaddress" placeholder="Vd: Quận 1, TP. HCM"  name='billaddress' [(ngModel)]="billaddress">
+            </div>
+
+            <div class="mb-3 text-center">
+              <button class="btn btn-primary" (click)="checkout()">Tiến hành đặt hàng</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="products.length === 0">
+  <div class="container mt-3 mb-3">
+    <div class="card text-center shadow p-3 mb-5 bg-body rounded">
+      <div class="img">
+        <img src="assets/img/empty-cart.png" class="card-img-top empty-img" alt="empty-cart.png">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">
+          Hiện tại không có hàng hoá
+        </h5>
+        <a routerLink="/product" class="btn btn-primary mt-3">Tiến hành mua hàng</a>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<app-footer></app-footer>

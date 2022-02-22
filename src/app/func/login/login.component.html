@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<div class="container mt-3 mb-3 form-center">
+  <div class="center">
+    <h1>Đăng nhập</h1>
+
+    <form [formGroup]="loginForm" >
+      <div class="txt_field">
+        <input type="text" required name="email" formControlName="email">
+        <span></span>
+        <label>Tài khoản email</label>
+      </div>
+      <p class="error" *ngIf="email?.errors?.email">Đây không phải là mail</p>
+      <p class="error" *ngIf="email?.errors?.required">Bạn chưa nhập dữ liệu</p>
+
+      <div class="txt_field">
+        <input type="password" required name="password" formControlName="password">
+        <span></span>
+        <label>Mật khẩu</label>
+      </div>
+      <p class="error" *ngIf="password?.errors?.min">Mật khẩu phải lớn >= 6 ký tự </p>
+      <p class="error" *ngIf="password?.errors?.required">Bạn chưa nhập dữ liệu</p>
+
+
+      <!-- <div class="pass">Forgot Password?</div> -->
+      <input type="submit" value="Đăng nhập" (click)="postData(loginForm)">
+      <div class="signup_link">
+        Bạn chưa có tài khoản <a routerLink="/register">Đăng ký</a>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+
+<app-footer></app-footer>

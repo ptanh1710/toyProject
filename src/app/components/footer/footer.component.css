@@ -1,0 +1,48 @@
+.footer {
+  background: linear-gradient(45deg, #240e8b, #0055a8);
+  color: #fff;
+  font-size: 14px;
+}
+
+h4 {
+  font-size: 28px;
+  text-transform: capitalize;
+}
+
+h5 {
+  font-size: 20px;
+  text-transform: capitalize;
+}
+
+hr {
+  width: 70%;
+  border: 1px solid #7bd5f5;
+}
+
+p {
+  text-align: justify;
+  line-height: 23px;
+  letter-spacing: 1px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  text-align: justify;
+  line-height: 28px;
+  display: block;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+}
+a:hover {
+  color: #7bd5f5;
+  transition: all .3s ease;
+}
+
+input, textarea {
+  width: 90%;
+}
+button {
+  width: 35%;
+}

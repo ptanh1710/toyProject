@@ -1,0 +1,69 @@
+<div class="header">
+  <a routerLink="/" class="header-logo">Toys store</a>
+
+  <ul class="header-list">
+    <li class="header-list_item">
+      <a routerLink="/home">
+        Trang chủ
+      </a>
+    </li>
+    <li class="header-list_item">
+      <a>
+        Sản phẩm
+      </a>
+      <ul class="sub-nav" >
+        <ng-container *ngFor="let cate of categoryList">
+          <li class="sub-nav_item" >
+            <a routerLink="/category/{{cate.category_id}}">{{cate.category_name}}</a>
+          </li>
+        </ng-container>
+      </ul>
+    </li>
+    <li class="header-list_item">
+      <a routerLink="/brand">
+        Thương hiệu
+      </a>
+    </li>
+    <li class="header-list_item">
+      <a routerLink="/introduce">
+        giới thiệu
+      </a>
+    </li>
+  </ul>
+
+  <div class="nav-right">
+    <div class="search">
+      <i class="fas fa-search"></i>
+    </div>
+    <div class="user">
+      <a>
+        <i class="fas fa-user"></i>
+        <span>{{customerName ?? 'Users'}}</span>
+      </a>
+      <ul class="user-list">
+        <ng-container *ngIf="loginbtn">
+          <li class="user-list_item">
+            <a routerLink="/login" >Đăng nhập</a>
+          </li>
+          <li class="user-list_item">
+            <a routerLink="/register"  >Đăng ký</a>
+          </li>
+        </ng-container>
+        <ng-container *ngIf="logoutbtn">
+          <li class="user-list_item">
+            <a routerLink="/order" >Hoá đơn</a>
+          </li>
+          <li class="user-list_item">
+            <a (click)="logout()">Đăng xuất</a>
+          </li>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="cart">
+      <a routerLink="/cart">
+        <i class="fas fa-shopping-cart"></i>
+        <span>{{totalItemCart}}</span>
+      </a>
+    </div>
+  </div>
+</div>

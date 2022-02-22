@@ -1,0 +1,52 @@
+<app-header-admin></app-header-admin>
+
+<div class="container" style="margin-top: 80px;">
+  <div class="form">
+    <div class="card shadow-lg p-3 mb-4 bg-body rounded">
+      <div class="card-body">
+        <h3 class="mb-3 text-center">Thêm sản phẩm</h3>
+        <form action="" [formGroup]="productForm" (ngSubmit)="insertProduct(productForm)">
+          <div class="mb-3">
+            <label for="name" class="form-label">Tên sản phẩm</label>
+            <input type="text" class="form-control" id="name" placeholder="Nhập tên?" formControlName="name" >
+          </div>
+          <div class="mb-3">
+            <label for="img" class="form-label">Hình</label>
+            <input type="file" class="form-control" id="img" formControlName="img" (change)="onSelectFile($event)">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Giá</label>
+            <input type="number" min="1" class="form-control" id="price" placeholder="Nhập giá?" formControlName="price">
+          </div>
+          <div class="mb-3">
+            <div class="row">
+              <div class="col">
+                <label class="form-label">Phân loại</label>
+                <select class="form-select" name="cate" formControlName="cate_id">
+                  <option *ngFor="let cate of categoryList" value={{cate.category_id}}>{{cate.category_name}}</option>
+                </select>
+              </div>
+              <div class="col">
+                <label class="form-label">Hãng sản phẩm</label>
+                <select class="form-select" name="brand" formControlName="brand_id">
+                  <option *ngFor="let brand of brandList" value={{brand.brand_id}}>{{brand.brand_name}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="desc" class="form-label">Mô tả</label>
+            <textarea class="form-control" id="desc" placeholder="Nhập mổ tả?" formControlName="desc"></textarea>
+          </div>
+          <div class="mb-3">
+            <button class="btn btn-primary me-2">Thêm hãng sản phẩm</button>
+            <a class="btn btn-info" routerLink="/admin/product-list">Quay về</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<app-footer-admin></app-footer-admin>

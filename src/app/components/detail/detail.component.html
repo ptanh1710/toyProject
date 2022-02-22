@@ -1,0 +1,80 @@
+<app-header></app-header>
+
+  <div class="container mt-4">
+    <ng-container *ngFor="let product of detail">
+
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <img src="assets/img/{{product.product_img}}" class="rounded mx-auto d-block" alt="name" width="70%">
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="card">
+          <div class="card-body">
+            <p class="card-subtitle ">ID: {{product.product_id}}</p>
+            <h2 class="card-title">{{product.product_name}}</h2>
+            <h5 class="card-title mt-4 mb-5">Giá: {{product.product_price | formatnumber}} VNĐ</h5>
+            <div class="mb-3">
+              <button class="btn btn-primary quantity-btn" (click)="decreaseQty()">-</button>
+              <input class="btn border ms-1 me-1" type="number" value="{{qty}}" width="30%" readonly ([ngModel])="qty" min="1" max="5">
+              <button class="btn btn-primary quantity-btn" (click)="increaseQty()">+</button>
+            </div>
+            <button class="btn btn-primary mt-2" (click)="addToCart(product)">Thêm vào giỏ</button>
+          </div>
+          <div class="card-footer">
+            <h5 class="card-title">Thông tin sản phẩm</h5>
+            <div class="card-text">Phân loại: <span>{{product.category_name}}</span></div>
+            <div class="card-text">Nhà cung cấp: <span>{{product.brand_name}}</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card mt-3 mb-3">
+      <div class="card-body">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Thông tin sản phẩm</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Mô tả</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Bình luận</button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="settings-tab" data-bs-toggle="tab" data-bs-target="#settings" type="button" role="tab" aria-controls="settings" aria-selected="false">Đánh giá</button>
+          </li>
+        </ul>
+
+        <div class="tab-content mt-3" >
+          <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <p>ID: {{product.product_id}}</p>
+            <p>Tên sản phẩm: {{product.product_name}}</p>
+            <p>Giá bán: {{product.product_price | formatnumber}} VNĐ</p>
+            <p>Phân loại đồ chơi: {{product.category_name}}</p>
+            <p>Hãng sản xuất đồ chơi: {{product.brand_name}}</p>
+          </div>
+          <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            {{product.product_desc}}
+          </div>
+          <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">Phát triển sau</div>
+          <div class="tab-pane" id="settings" role="tabpanel" aria-labelledby="settings-tab">Phát triển sau</div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      var firstTabEl = document.querySelector('#myTab li:last-child button')
+      var firstTab = new bootstrap.Tab(firstTabEl)
+
+      firstTab.show()
+    </script>
+
+    </ng-container>
+  </div>
+
+<app-footer></app-footer>
+
+

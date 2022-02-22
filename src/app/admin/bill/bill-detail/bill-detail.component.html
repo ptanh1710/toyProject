@@ -1,0 +1,83 @@
+<app-header-admin></app-header-admin>
+
+
+<div class="container" style="margin-top: 80px;" >
+  <div class="row" *ngFor="let bill of bill">
+    <div class="col-lg-8 col-md-12 col-sm-12">
+      <div class="card shadow-lg p-3 mb-2 bg-body rounded">
+        <div class="card-body">
+          <h3 class="text-center mb-2">Thông tin người đặt hàng</h3>
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th scope="col" width="30%">Tiêu đề</th>
+                <th scope="col" width="70%">Thông tin</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr >
+                <th scope="row" width="30%">Tên khách hàng</th>
+                <th scope="row" width="70%">{{bill.bill_name}}</th>
+              </tr>
+              <tr >
+                <th scope="row" width="30%">Địa chỉ</th>
+                <th scope="row" width="70%">{{bill.bill_address}}</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <div class="card shadow-lg p-3 bg-body rounded">
+        <div class="card-body">
+          <h3 class="text-center mb-2">Hoá đơn</h3>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Tổng tiền</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr >
+                <th scope="row" class="text-danger">{{bill.bill_total | formatnumber}} VNĐ</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <div class="card shadow-lg p-3 mb-2 bg-body rounded">
+        <div class="card-body" >
+          <h3 class="text-center mb-2">Chi tiết đơn hàng</h3>
+          <table class="table">
+            <thead>
+              <tr class="text-center">
+                <th scope="col">#</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Giá gốc</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Tổng giá</th>
+              </tr>
+            </thead>
+            <tbody class="align-middle">
+              <tr  *ngFor="let item of billdetail; let i= index">
+                <th scope="row" class="text-center">{{i+1}}</th>
+                <td >{{item.product_name}}</td>
+                <td  class="text-center">{{item.product_price | formatnumber}}</td>
+                <td  class="text-center"> {{item.billdetail_quantity}}</td>
+                <td class="text-center"> {{item.billdetail_total | formatnumber}} VNĐ</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer-admin></app-footer-admin>
